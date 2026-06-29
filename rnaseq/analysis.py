@@ -24,6 +24,7 @@ plt.title("Mean gene expression")
 plt.ylabel("Expression level")
 plt.tight_layout()
 
+plt.savefig("mean_expression.png")
 plt.show()
 from sklearn.decomposition import PCA
 
@@ -45,6 +46,7 @@ plt.title("PCA of RNA-seq samples")
 plt.xlabel("PC1")
 plt.ylabel("PC2")
 
+plt.savefig("pca_plot.png")
 plt.show()
 from scipy.stats import ttest_ind
 import numpy as np
@@ -75,4 +77,5 @@ plt.xlabel("log2 Fold Change")
 plt.ylabel("-log10 p-value")
 plt.title("Volcano Plot (RNA-seq)")
 
+plt.savefig("volcano_plot.png")
 plt.show()

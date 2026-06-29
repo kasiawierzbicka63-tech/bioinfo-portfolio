@@ -79,3 +79,42 @@ plt.title("Volcano Plot (RNA-seq)")
 
 plt.savefig("volcano_plot.png")
 plt.show()
+import pandas as pd
+import numpy as np
+def create_data():
+    np.random.seed(42)
+
+    genes = [f"Gene_{i}" for i in range(1, 101)]
+
+    data = pd.DataFrame({
+        "Control_1": np.random.poisson(20, 100),
+        "Control_2": np.random.poisson(22, 100),
+        "Treatment_1": np.random.poisson(35, 100),
+        "Treatment_2": np.random.poisson(38, 100),
+    }, index=genes)
+
+    return data
+def compute_log2fc(data):
+    control = data[["Control_1", "Control_2"]].mean(axis=1)
+    treatment = data[["Treatment_1", "Treatment_2"]].mean(axis=1)
+
+    log2fc = np.log2(treatment / control)
+    return log2fc
+data = create_data()
+log2fc = compute_log2fc(data)
+
+print("Top genes by change:")
+print(log2fc.sort_values(ascending=False).head())
+top_up = log2fc.sort_values(ascending=False).head(10)
+top_down = log2fc.sort_values(ascending=True).head(10)
+
+print("\nTOP UPREGULATED GENES:")
+print(top_up)
+
+print("\nTOP DOWNREGULATED GENES:")
+print(top_down)
+results = pd.DataFrame({
+    "log2FC": log2fc
+})
+
+results.to_csv("gene_results.csv")

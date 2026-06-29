@@ -1,15 +1,44 @@
 # Bioinformatics Portfolio
 
-## About me
-I am learning Python and bioinformatics (RNA-seq analysis).
+## Project: RNA-seq Differential Expression Analysis
 
-## Skills
+This project demonstrates a simplified RNA-seq analysis pipeline using Python.
+
+---
+
+## Objective
+To simulate gene expression data and identify differences between Control and Treatment groups.
+
+---
+
+## Methods
+- Data simulation using NumPy
+- Exploratory data analysis (pandas)
+- PCA analysis
+- Differential expression (log2 fold change)
+- Visualization (matplotlib)
+
+---
+
+## Results
+
+### PCA
+Shows clear separation between Control and Treatment samples.
+
+### Volcano Plot
+Highlights genes with strongest changes.
+
+---
+
+## Tools
 - Python
 - pandas
 - numpy
 - matplotlib
+- scipy
 - Git / GitHub
-- Data analysis
 
-## Projects
-- RNA-seq analysis (PCA + volcano plot)
+---
+
+## Conclusion
+This project shows a full basic bioinformatics workflow from data to interpretation.
